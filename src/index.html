@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="lrng">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="CodeXen Web Application">
+    <title>Yolo!</title>
+    <link rel="stylesheet" href="vendor/css/font-awesome.css">
+    <link rel="stylesheet" href="all.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+    <section ui-view></section>
+
+    <script src="vendor/angular.js"></script>
+    <script src="vendor/angular-ui-router.js" charset="utf-8"></script>
+    <script src="vendor/ui-bootstrap-tpls.js" charset="utf-8"></script>
+    <script src="vendor/angular-jwt.js" charset="utf-8"></script>
+    <script charset="utf-8">
+    angular.module('lrng', ['templates', 'angular-jwt', 'ui.bootstrap']);
+
+    angular.module('templates', []);
+
+    </script>
+    <% scripts.forEach(function(script){%>
+    <script src="<%=script%>" charset="utf-8"></script>
+    <% });%>
+</body>
+</html>
