@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="all.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
+    <top-nav></top-nav>
     <section ui-view></section>
 
     <script src="vendor/angular.js"></script>
@@ -14,12 +15,30 @@
     <script src="vendor/ui-bootstrap-tpls.js" charset="utf-8"></script>
     <script src="vendor/angular-jwt.js" charset="utf-8"></script>
     <script charset="utf-8">
-    angular.module('lrng', ['templates', 'angular-jwt', 'ui.bootstrap', 'ui.router', 'lrng.home']);
+    // app
+    angular.module('lrng', ['templates', 'angular-jwt', 'ui.bootstrap', 'ui.router', 'lrng.states', 'lrng.directives'])
+        .config(function($urlRouterProvider){
+            $urlRouterProvider.otherwise("/");
+        });
 
+    // directives
+    angular.module('lrng.directives', [
+        'lrng.top-nav'
+        ]);
+    angular.module('lrng.top-nav', ['ui.router']);
+
+    // states
+    angular.module('lrng.states', [
+        'lrng.home',
+        'lrng.about'
+        ]);
     angular.module('lrng.home', ['ui.router', 'lrng.inspiring']);
+    angular.module('lrng.about', ['ui.router']);
 
+    // services
     angular.module('lrng.inspiring', []);
 
+    // templates
     angular.module('templates', []);
 
     </script>

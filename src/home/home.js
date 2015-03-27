@@ -1,7 +1,7 @@
 angular.module('lrng.home')
     .config(function($stateProvider){
         $stateProvider.state('home', {
-            url:'',
+            url:'/',
             templateUrl:'home/home.tpl.html',
             controller:'HomeController',
             controllerAs:'homeCtrl'
