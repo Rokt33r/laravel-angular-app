@@ -15,7 +15,11 @@
     <script src="vendor/ui-bootstrap-tpls.js" charset="utf-8"></script>
     <script src="vendor/angular-jwt.js" charset="utf-8"></script>
     <script charset="utf-8">
-    angular.module('lrng', ['templates', 'angular-jwt', 'ui.bootstrap']);
+    angular.module('lrng', ['templates', 'angular-jwt', 'ui.bootstrap', 'ui.router', 'lrng.home']);
+
+    angular.module('lrng.home', ['ui.router', 'lrng.inspiring']);
+
+    angular.module('lrng.inspiring', []);
 
     angular.module('templates', []);
 
