@@ -18,7 +18,9 @@
     // app
     angular.module('lrng', ['templates', 'angular-jwt', 'ui.bootstrap', 'ui.router', 'lrng.states', 'lrng.directives'])
         .config(function($urlRouterProvider){
-            $urlRouterProvider.otherwise("/");
+            $urlRouterProvider
+                .when('', '/')
+                .otherwise('/notfound');
         });
 
     // directives
@@ -30,10 +32,17 @@
     // states
     angular.module('lrng.states', [
         'lrng.home',
-        'lrng.about'
+        'lrng.about',
+        'lrng.errors'
         ]);
     angular.module('lrng.home', ['ui.router', 'lrng.inspiring']);
     angular.module('lrng.about', ['ui.router']);
+
+    // error states
+    angular.module('lrng.errors', [
+        'lrng.errors.notfound'
+    ]);
+    angular.module('lrng.errors.notfound', ['ui.router']);
 
     // services
     angular.module('lrng.inspiring', []);

@@ -8,16 +8,8 @@ angular.module('lrng.top-nav')
             scope:{}
         }
     })
-    .controller('TopNavController', function($state, $scope){
+    .controller('TopNavController', function(){
         var vm = this;
 
-        vm.current = $state.$current.name;
-
-        $scope.$on('$stateChangeSuccess', function(){
-            vm.current = $state.$current.name;
-        });
-
-        vm.go = function(stateName){
-            $state.go(stateName);
-        }
+        vm.collapsed = true;
     });
