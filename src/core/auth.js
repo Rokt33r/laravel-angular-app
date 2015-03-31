@@ -40,7 +40,7 @@ angular.module('lrng.auth')
         };
 
         var attempt = function(email, password){
-            var url = Config.rootUrl + 'attempt';
+            var url = Config.rootUrl + 'auth';
 
             return $http.post(url, {
                 email:email,
