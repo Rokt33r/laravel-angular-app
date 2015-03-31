@@ -16,12 +16,15 @@
     <script src="vendor/angular-jwt.js" charset="utf-8"></script>
     <script charset="utf-8">
     // app
-    angular.module('lrng', ['templates', 'angular-jwt', 'ui.bootstrap', 'ui.router', 'lrng.states', 'lrng.directives'])
-        .config(function($urlRouterProvider){
-            $urlRouterProvider
-                .when('', '/')
-                .otherwise('/notfound');
-        });
+    angular.module('lrng', ['templates', 'angular-jwt', 'ui.bootstrap', 'ui.router', 'lrng.states', 'lrng.directives', 'lrng.core']);
+
+    // core
+    angular.module('lrng.core', [
+        'lrng.config',
+        'lrng.auth'
+        ]);
+    angular.module('lrng.config', ['angular-jwt']);
+    angular.module('lrng.auth', ['lrng.config', 'ui.router']);
 
     // directives
     angular.module('lrng.directives', [
@@ -33,10 +36,15 @@
     angular.module('lrng.states', [
         'lrng.home',
         'lrng.about',
+        'lrng.mypage',
+        'lrng.signin',
         'lrng.errors'
         ]);
     angular.module('lrng.home', ['ui.router', 'lrng.inspiring']);
     angular.module('lrng.about', ['ui.router']);
+    angular.module('lrng.mypage', ['ui.router']);
+
+    angular.module('lrng.signin', ['ui.router', 'lrng.auth']);
 
     // error states
     angular.module('lrng.errors', [
@@ -45,7 +53,7 @@
     angular.module('lrng.errors.notfound', ['ui.router']);
 
     // services
-    angular.module('lrng.inspiring', []);
+    angular.module('lrng.inspiring', ['lrng.config']);
 
     // templates
     angular.module('templates', []);

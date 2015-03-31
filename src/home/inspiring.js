@@ -1,8 +1,8 @@
 angular.module('lrng.inspiring')
-    .factory('Inspiring', function($http){
+    .factory('Inspiring', function($http, Config){
 
         var get = function(){
-            var url = 'http://localhost:8000/';
+            var url = Config.rootUrl;
 
             return $http.get(url);
         };

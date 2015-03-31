@@ -22,6 +22,21 @@
 
                 <li ui-sref-active="active"><a ui-sref="about">About</a></li>
 
+                <li ui-sref-active="active" ng-show="vm.currentUser"><a ui-sref="mypage">My page</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="vm.currentUser" ui-sref-active="active"><a ui-sref="signin">Sign In</a></li>
+                <li ng-show="vm.currentUser" dropdown is-open="status.isopen">
+                    <a dropdown-toggle ng-bind="vm.currentUser.name"></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a ng-click="vm.signOut()">Sign Out</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
