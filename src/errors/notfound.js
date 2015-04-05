@@ -4,4 +4,4 @@ angular.module('lrng.errors.notfound')
             url:'/notfound',
             templateUrl:'errors/notfound.tpl.html'
         });
-    })
+    });

@@ -4,7 +4,7 @@ angular.module('lrng.home')
             url:'/',
             templateUrl:'home/home.tpl.html',
             controller:'HomeController',
-            controllerAs:'homeCtrl'
+            controllerAs:'vm'
         });
     })
     .controller('HomeController', function(Inspiring){

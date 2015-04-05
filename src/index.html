@@ -20,10 +20,12 @@
 
     // core
     angular.module('lrng.core', [
+        'lrng.init',
         'lrng.config',
         'lrng.auth'
         ]);
-    angular.module('lrng.config', ['angular-jwt']);
+    angular.module('lrng.init', ['lrng.auth', 'ui.router']);
+    angular.module('lrng.config', ['angular-jwt', 'ui.router']);
     angular.module('lrng.auth', ['lrng.config', 'ui.router']);
 
     // directives

@@ -25,7 +25,10 @@
                 <li ui-sref-active="active" ng-show="vm.currentUser"><a ui-sref="mypage">My page</a></li>
 
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul ng-show="vm.onAuthenticating" class="nav navbar-nav navbar-right">
+                <li><a>Authenticating...</a></li>
+            </ul>
+            <ul ng-hide="vm.onAuthenticating" class="nav navbar-nav navbar-right">
                 <li ng-hide="vm.currentUser" ui-sref-active="active"><a ui-sref="signin">Sign In</a></li>
                 <li ng-show="vm.currentUser" dropdown is-open="status.isopen">
                     <a dropdown-toggle ng-bind="vm.currentUser.name"></a>

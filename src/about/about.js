@@ -4,7 +4,7 @@ angular.module('lrng.about')
             url:'/about',
             templateUrl:'about/about.tpl.html',
             controller:'AboutController',
-            controllerAs:'aboutCtrl'
+            controllerAs:'vm'
         });
     })
     .controller('AboutController', function(){

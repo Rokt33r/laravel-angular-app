@@ -10,10 +10,20 @@ angular.module('lrng.signin')
             }
         });
     })
-    .controller('SignInController', function(Auth){
+    .controller('SignInController', function(Auth, $state){
         var vm = this;
 
         vm.signIn = function(){
-            Auth.attempt(vm.email, vm.password);
+            vm.error = null;
+            Auth.attempt(vm.email, vm.password, function(){
+                if(Auth.hasPendingState()){
+                    var pending = Auth.releasePendingState();
+                    $state.go(pending.state, pending.params);
+                    return;
+                }
+                $state.go('home');
+            }, function(data){
+                vm.error = data.error;
+            });
         };
     });

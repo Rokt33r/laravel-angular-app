@@ -13,7 +13,7 @@ angular.module('lrng.top-nav')
 
         vm.collapsed = true;
         vm.currentUser = null;
-        vm.onAuthenticating = false;
+        vm.onAuthenticating = true;
 
         $scope.$on('StartAuthenticating', function(){
             vm.onAuthenticating = true;
